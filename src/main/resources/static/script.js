@@ -1,11 +1,21 @@
 $(() => {
     console.log("ready");
-         loadMovies();
+    loadMovies();
+    $("#movie").on("input", () => {
+        let movie = $("#movie").val();
+        let out = "<table><tr><th>Title</th><th>Director</th><th>Year</th></tr>";
+        $.get("/searchformovie?movie=" + movie, (data) => {
+            out += "<tr><td>" + data.title + "</td><td>" + data.director + "</td><td>" + data.year + "</td></tr>";
+
+        })
+        out += "</table>";
+        $("#results").html(out);
+    })
 
 })
 
-function loadMovies(){
-    $.post("/movies",(data) => {
+function loadMovies() {
+    $.post("/movies", (data) => {
         //adds movie to select
         console.log("movies" + data);
         let out = "<select id = 'movies' >";
@@ -20,6 +30,7 @@ function loadMovies(){
 
 function searchdir() {
     let director = document.getElementById("director").value;
+    console.log(director)
     const url = "/aDirector?director="
     $.get(url + director, (data) => {
         let directors = "<table><tr><th>Title</th><th>Director</th><th>Year</th></tr>";
@@ -27,6 +38,9 @@ function searchdir() {
             directors += "<tr><td>" + movie.title + "</td><td>" + movie.director + "</td><td>" + movie.year + "</td></tr>";
         }
         directors += "</table>";
-        document.getElementById("result").html(directors);
+        $("results").html(directors);
     })
+
+
 }
+
