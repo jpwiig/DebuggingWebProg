@@ -29,11 +29,13 @@ public class Controller {
     public List<Movie> OnlyDirector(String director) {
         List<Movie> moviesByDirector = new ArrayList<>();
         for (Movie movie : movies) {
-            if (movie.getDirector() == director) {
+            System.out.println(movie.toString() + " " + director);
+            if (movie.getDirector().equals(director)) {
                 moviesByDirector.add(movie);
-            } /*else {
+
+            } else {
                 System.out.println("No movies found for director " + director);
-            }*/
+            }
         }
         return moviesByDirector;
     }
