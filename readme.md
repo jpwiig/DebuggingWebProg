@@ -9,5 +9,8 @@ I denne gjennomgangen så bruker vi den falske webapplikasjonen "movies" til å 
 - Hvordan kjøre en spring boot applikasjon med IntelliJ
 - Bruke de forskjellige HTTP requestene til å forstå hva som foregår på seversiden 
 - Console log med javascript 
-- litt titt på postman
+- litt om postman
 - Andre ting som kan være nyttig å vite om
+
+
+### Noen generelle

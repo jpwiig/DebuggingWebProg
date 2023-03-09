@@ -14,7 +14,8 @@ import java.util.List;
 public class Controller {
     public List<Movie> movies = new ArrayList<>();
     private Logger log = LoggerFactory.getLogger(Movie.class);
-    @PostMapping("/movies")
+    @PostMapping("/addMovies")
+    //adds movies to the array, and loads them
     public List<Movie> addMovies() {
         movies.add(new Movie("The Shawshank Redemption", "Drama", "1994", "Frank Darabont"));
         movies.add(new Movie("The Godfather", "Crime", "1972", "Francis Ford Coppola"));
@@ -28,6 +29,7 @@ public class Controller {
     }
 
     @GetMapping("/aDirector")
+    //finds movies for a director
     public List<Movie> OnlyDirector(String director) {
         List<Movie> moviesByDirector = new ArrayList<>();
         for (Movie movie : movies) {
@@ -35,7 +37,6 @@ public class Controller {
                 moviesByDirector.add(movie);
             }
         }
-        if (moviesByDirector.size() > 0) throw new IndexOutOfBoundsException("No directors");
         return moviesByDirector;
     }
 

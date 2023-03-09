@@ -15,7 +15,7 @@ $(() => {
 })
 
 function loadMovies() {
-    $.post("/movies", (data) => {
+    $.post("/addMovies", (data) => { //same get as in the Controller
         //adds movie to select
         console.log("movies" + data);
         let out = "<select id = 'movies' >";
@@ -29,7 +29,7 @@ function loadMovies() {
 }
 
 function searchdir() {
-    let director = document.getElementById("director").value;
+    let director = $("#director").val();
     console.log(director)
     const url = "/aDirector?director="
     $.get(url + director, (data) => {
@@ -38,7 +38,7 @@ function searchdir() {
             directors += "<tr><td>" + movie.title + "</td><td>" + movie.director + "</td><td>" + movie.year + "</td></tr>";
         }
         directors += "</table>";
-        $("results").html(directors);
+        $("#results").html(directors);
     })
 
 
