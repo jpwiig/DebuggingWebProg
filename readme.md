@@ -13,4 +13,6 @@ I denne gjennomgangen så bruker vi den falske webapplikasjonen "movies" til å 
 - Andre ting som kan være nyttig å vite om
 
 
-### Noen generelle
+### Noen generelle tips
+- Husk at server kallet skal være det samme i javascript som i controlleren 
+- husk at du kan blande vanilla javascript og jquery
