@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -38,6 +40,21 @@ public class Controller {
             }
         }
         return moviesByDirector;
+    }
+
+    @GetMapping("/sortbyGenre")
+    public List<Movie>SortedbyGenre() {
+        sortbygenre(movies);
+        return movies;
+    }
+
+    public void sortbygenre(List <Movie> movies) {
+        movies.sort(new Comparator<Movie>() {
+            @Override
+            public int compare(Movie o1, Movie o2) {
+                return o1.getGenre().compareTo(o2.getGenre());
+            }
+        });
     }
 
     @GetMapping("/searchformovie")

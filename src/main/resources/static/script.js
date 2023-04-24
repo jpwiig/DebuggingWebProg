@@ -3,16 +3,29 @@ $(() => {
     loadMovies();
     $("#movie").on("input", () => {
         let movie = $("#movie").val();
-        let out = "<table><tr><th>Title</th><th>Director</th><th>Year</th></tr>";
+        let out = "<table><tr><th>Title</th><th>Director</th><th>Year</th><th>genre</th></tr>";
         $.get("/searchformovie?movie=" + movie, (data) => {
-            out += "<tr><td>" + data.title + "</td><td>" + data.director + "</td><td>" + data.year + "</td></tr>";
+            out += "<tr><td>" + data.title + "</td><td>" + data.director + "</td><td>" + data.year + "</td><td>" + data.genre + "</td></tr>";
 
         })
         out += "</table>";
         $("#results").html(out);
     })
-
+printallsorted()
 })
+
+function printallsorted(){
+    $("#results").html("");
+$.get("/sortbyGenre", (data) => {
+        let out = "<table><tr><th>Title</th><th>Director</th><th>Year</th></tr>";
+        for (let movie of data) {
+            out += "<tr><td>" + movie.title + "</td><td>" + movie.director + "</td><td>" + movie.year + "</td><td>" + movie.genre +"</td></tr>";
+        }
+        out += "</table>";
+        $("#results").html(out);
+    })
+
+}
 
 function loadMovies() {
     $.post("/addMovies", (data) => { //same get as in the Controller
