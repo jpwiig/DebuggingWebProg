@@ -50,9 +50,12 @@ public class Controller {
 
     public void sortbygenre(List <Movie> movies) {
         movies.sort(new Comparator<Movie>() {
+            /*
+            * Compares an list of movies by genre using a comparator
+             */
             @Override
             public int compare(Movie o1, Movie o2) {
-                return o1.getGenre().compareTo(o2.getGenre());
+                return o1.getGenre().compareTo(o2.getGenre()); //overrites the compare method, return 0 or 1 depending on the comparison (more in DATS2300)
             }
         });
     }

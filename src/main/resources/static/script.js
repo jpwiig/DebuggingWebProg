@@ -2,6 +2,7 @@ $(() => {
     console.log("ready");
     loadMovies();
     $("#movie").on("input", () => {
+
         let movie = $("#movie").val();
         let out = "<table><tr><th>Title</th><th>Director</th><th>Year</th><th>genre</th></tr>";
         $.get("/searchformovie?movie=" + movie, (data) => {
@@ -15,6 +16,7 @@ printallsorted()
 })
 
 function printallsorted(){
+    //TODO: hella broken (prints values @every refresh)
     $("#results").html("");
 $.get("/sortbyGenre", (data) => {
         let out = "<table><tr><th>Title</th><th>Director</th><th>Year</th></tr>";
