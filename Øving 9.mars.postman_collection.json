@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "4661da24-c4c0-4f8e-a3e6-7ef3818c2d6a",
+		"name": "Øving 9.mars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26240092"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/aDirector?director=Steven Spielberg",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/aDirector?director=Steven Spielberg",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aDirector"
+					],
+					"query": [
+						{
+							"key": "director",
+							"value": "Steven Spielberg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/movies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

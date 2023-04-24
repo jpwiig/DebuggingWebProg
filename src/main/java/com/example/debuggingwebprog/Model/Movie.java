@@ -1,4 +1,4 @@
-package Model;
+package com.example.debuggingwebprog.Model;
 
 public class Movie {
     private String title;
