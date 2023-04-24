@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@RestController()
 public class Controller {
     public List<Movie> movies = new ArrayList<>();
     @PostMapping("/movies")
@@ -20,14 +20,12 @@ public class Controller {
     return movies;
     }
 
-    @PostMapping("/aDirector")
+    @GetMapping("/aDirector")
     public List<Movie>OnlyDirector(String director){
         List<Movie> moviesByDirector = new ArrayList<>();
         for (Movie movie : movies) {
             if (movie.getDirector().equals(director)) {
                 moviesByDirector.add(movie);
-            } else {
-                System.out.println("No movies found for director " + director);
             }
         }
         return moviesByDirector;
